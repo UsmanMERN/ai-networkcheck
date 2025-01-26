@@ -1,7 +1,7 @@
 "use client";
 
 import { Card } from "@/components/ui/card";
-import { DivideIcon as LucideIcon } from "lucide-react";
+import { LucideIcon } from "lucide-react"; // Correctly import LucideIcon type
 
 interface NetworkStatsProps {
   title: string;
@@ -9,7 +9,7 @@ interface NetworkStatsProps {
   upload?: number;
   download?: number;
   unit?: string;
-  icon: LucideIcon;
+  icon: LucideIcon; // Use the LucideIcon type here
   status?: "success" | "warning" | "error";
 }
 

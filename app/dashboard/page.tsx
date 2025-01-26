@@ -14,8 +14,34 @@ import {
 import { NetworkStats } from "@/components/dashboard/network-stats";
 import { ChatInterface } from "@/components/dashboard/chat-interface";
 
+// Define interfaces for the network data
+interface BandwidthData {
+  upload: number;
+  download: number;
+  history: { time: string; upload: number; download: number }[];
+}
+
+interface LatencyData {
+  current: number;
+  average: number;
+  min: number;
+  max: number;
+  history: { time: string; value: number }[];
+}
+
+interface PacketLossData {
+  current: number;
+  history: { time: string; value: number }[];
+}
+
+interface NetworkData {
+  bandwidth: BandwidthData;
+  latency: LatencyData;
+  packetLoss: PacketLossData;
+}
+
 export default function DashboardPage() {
-  const [networkData, setNetworkData] = useState({
+  const [networkData, setNetworkData] = useState<NetworkData>({
     bandwidth: {
       upload: 0,
       download: 0,
